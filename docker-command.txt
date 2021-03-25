@@ -20,4 +20,4 @@
 	-e ME_CONFIG_MONGODB_SERVER=mongodb \
 	--net mongo-network \
 	--name mongo-express \
-    mongo-expres
+    mongo-express
