@@ -230,35 +230,55 @@ Bin boot data
 	
 	#To Make node JS web site work, execute following commands. 
 	
-	#First update the YUM package repository cache with the following command:
-	$ sudo yum makecache
+NodeJS is an open-source, cross-platform JavaScript runtime environment for developing network tools and web applications. Many of the NodeJS modules are written in JavaScript which makes the development of applications easier.
+
+NodeJS is a combination of the Runtime environment and JavaScript modules. Node.js interprets JavaScript using Google’s V8 JavaScript engine, developed by Ryan Dahl in 2009.
+
+In this post, we will see how to install NodeJS on CentOS 8 / RHEL 8.
+NodeJS Versions
+
+There are two versions of NodeJS available for users. Check out the official page to find the latest version of Node.js.
+
+    v12.x (Long Term Supported)
+    v13.x (Current Latest Version)
+
 	
-	#Now install build tools on your CentOS 7 machine with the following command:
-	$ sudo yum install gcc-c++ make
+	#Now install build tools To compile and install native addons from npm, you need to install development tools.
+	$ yum groupinstall -y 'Development Tools'
 	
-	#Run the following command to add the package repository of NodeJS 10.x on your CentOS 8 machine:
-	$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+	#Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)
+	$ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+	$ yum install nodejs
 	
-	#Now you can install NodeJS on your CentOS 8 machine with the following command:
+	#Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)
+	$ curl -sL https://rpm.nodesource.com/setup_13.x | bash -
 	$ sudo yum install nodejs
 	
+	#Install NodeJS Using OS Repository
+
+NodeJS v10.x is available from the AppStream repository (rhel-8-for-x86_64-appstream-rpms) for RHEL 8 and AppStream for CentOS 8. So, you can simply install it using yum command.
+
+When NodeJS installed, NPM (Node Package Manager) will also be installed along with Node.js.
+	$ yum install -y @nodejs
+
 	#Now run the following command to verify whether NodeJS is working:
-	$ node --version
+	$ node -v
 	
 	#Now run the following command to see whether Node Package Manager (NPM) is working:
-	$ npm --version
-	#Inside app/ directory, initialize a Node package.json file with the following command:
-        $ npm init -y
+	$ npm -v
 	
-	# As you can see a package.json file is generated. The contents of the file are also printed on the terminal. It is a JSON file. Here, name is the application name, version is the application version, description is a short description about your application, main is the name of a NodeJS script in your project directory that is used to start your application. By default, it is server.js, but you can change it. scripts is an object that holds command aliases. I am going to leave the defaults for now.
+	#if you want to remove nodejs, execute the following command 
+	$sudo yum remove -y nodejs npm
 	
-	#Now install Express.js NodeJS package with NPM with the following command:
-	$ sudo npm install express --save
+	#firewall 
+	#Allow the port 9000 in the firewall to access the web application from external machines.
 	
-	#All the modules are kept in the node_modules/ directory in your project directory.
+	$firewall-cmd --permanent --add-port=9000/tcp
+
+        $firewall-cmd --reload
 	
 	#Now run the following command to start the app:
-	$ node server.js
+	$ node --inspect server.js
 	
 	#The app should start.
 	Now from your web browser, go to http://localhost:3000 and you should see the following output. The NodeJS app is working  
