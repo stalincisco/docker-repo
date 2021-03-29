@@ -227,3 +227,40 @@ Bin boot data
 	/# ls
 	/# env (mongo db username and password are set )
 	/# ls /home/app/
+	
+	#To Make node JS web site work, execute following commands. 
+	
+	#First update the YUM package repository cache with the following command:
+	$ sudo yum makecache
+	
+	#Now install build tools on your CentOS 7 machine with the following command:
+	$ sudo yum install gcc-c++ make
+	
+	#Run the following command to add the package repository of NodeJS 10.x on your CentOS 8 machine:
+	$ curl --silent --location https://rpm.nodesource.com/setup_10.x | sudo bash -
+	
+	#Now you can install NodeJS on your CentOS 8 machine with the following command:
+	$ sudo yum install nodejs
+	
+	#Now run the following command to verify whether NodeJS is working:
+	$ node --version
+	
+	#Now run the following command to see whether Node Package Manager (NPM) is working:
+	$ npm --version
+	#Inside app/ directory, initialize a Node package.json file with the following command:
+        $ npm init -y
+	
+	# As you can see a package.json file is generated. The contents of the file are also printed on the terminal. It is a JSON file. Here, name is the application name, version is the application version, description is a short description about your application, main is the name of a NodeJS script in your project directory that is used to start your application. By default, it is server.js, but you can change it. scripts is an object that holds command aliases. I am going to leave the defaults for now.
+	
+	#Now install Express.js NodeJS package with NPM with the following command:
+	$ sudo npm install express --save
+	
+	#All the modules are kept in the node_modules/ directory in your project directory.
+	
+	#Now run the following command to start the app:
+	$ node server.js
+	
+	#The app should start.
+	Now from your web browser, go to http://localhost:3000 and you should see the following output. The NodeJS app is working  
+	correctly.
+	#Now to stop the app, press <Ctrl> + c on the terminal.
