@@ -126,25 +126,25 @@
 
    $ docker run -p6000:6379  ( -p bind the port of your host to the container)
  
-          $ docker run -p6000:6379 redis
+   $ docker run -p6000:6379 redis
           $ docker ps
 
-          $ docker run -p6000:6379 -d redis
+   $ docker run -p6000:6379 -d redis
           $ docker ps
           
-          $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
+  $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
           $ docker ps
 
-How to Run a container will a name change
-$ docker ps  
-$ docker stop cfec85d7
+#How to Run a container will a name change
+  $ docker ps  
+  $ docker stop cfec85d7
 
-                  $ docker run -d -p6001:6379 --name redis-older redis:4.0
-                 $ docker ps
+  $ docker run -d -p6001:6379 --name redis-older redis:4.0
+                $ docker ps
          (redis:4.0 image name will be changed to redis-older)
 
-     $ docker run -d -p6000:6379 --name redis-latest redis
-                 $ docker ps
+ $ docker run -d -p6000:6379 --name redis-latest redis
+                $ docker ps
          (redis image name will be changed to redis-latest)
 
 If older version has some issue I can do
@@ -193,7 +193,7 @@ Bin boot data
     Creating Docker Network
     $ docker network ls
     $ docker network create mongo-network
-     $ docker network ls ( you will see mongo-network
+    $ docker network ls ( you will see mongo-network
 
 
     Mongo DB install
