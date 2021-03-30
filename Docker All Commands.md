@@ -218,13 +218,18 @@ Bin boot data
     mongo-express
 
 
-**to see MONGO DB, go to Firefox and type the below**
+**to see MONGO Express, go to Firefox and type the below**
     Localhost:8081
 
-**to see MONGO DB, go to Firefox and type the below**
+# create New database "my-db" and `users` in new collection database_ in mongo-express
+# Start your nodejs application locally - go to `app` directory of project 
+    $npm install 
+    $node server.js
+    
+**to Access you nodejs application UI from Firefox browser**
     Localhost:3000
 
-    #Docker compose
+**  **  #Docker compose****
 
     $ docker container kill web02 (kill all the application before launching dockers)
     $ docker-compose -f mongo.yaml up ( to bring the containers up)
