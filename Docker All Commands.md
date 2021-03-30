@@ -181,7 +181,9 @@ Bin boot data
     $docker container ls -sa
 
 ****Project****
-
+1) Create an folder under /Home/app/
+2) $git clone https://github.com/stalincisco/demo-repo/
+3) extract zip folder under same directory (techworld-js-docker-demo-app-master)
 **    Download Mongo DB**
 
     $ docker pull mongo
