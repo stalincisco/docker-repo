@@ -363,3 +363,47 @@ Bin boot data
     	#Create a New Container
 
     	$docker run --name test my-app:1.0
+	
+	
+****	Install Visual Studio Code ****
+	**Switch to the root user.**
+        $su -
+**Download and import the Microsoft signing GPG key using the curl command.**
+   $rpm --import https://packages.microsoft.com/keys/microsoft.asc
+   
+  **** Now, add the Visual Studio Code repository to your system.****
+
+cat << EOF > /etc/yum.repos.d/vscode.repo
+[code]
+name=Visual Studio Code
+baseurl=https://packages.microsoft.com/yumrepos/vscode
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+EOF
+
+****Install Visual Studio Code****
+  $yum check-update
+  $yum install -y code
+**  Start Visual Studio Code******
+  $code
+****  Update Visual Studio Code****
+  $yum update code
+  
+****Install Cockpit on CentOS 8 ****
+#Install the Cockpit package in case the package is not already installed.
+  $dnf install -y cockpit
+#You can install add-on packages to manage other tasks using Cockpit.
+  $Enable the Cockpit service.
+  $systemctl enable --now cockpit.socket
+**Firewall******
+$firewall-cmd --permanent --add-service=cockpit
+$firewall-cmd --reload
+**Access Cockpit from Firefox**
+https://ip.add.re.ss:9090
+
+You can manage disks, partitions, and LVM by going to Storage (dnf install -y cockpit-storaged). Also, you can check disk read and write performance and storage logs.
+
+You can manage Podman containers by going yo the Podman Containers (dnf install -y cockpit-podman) page. Here, you can run, stop, delete and commit containers.
+
+Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to Virtual Machines.
