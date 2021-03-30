@@ -3,8 +3,8 @@
     - $ Docker ps
     - $ docker run postgres:9.6
     - $ docker run postgres:10.10
-
-    #Dockers installation steps
+**
+** **   #Dockers installation steps******
 
     #Remove old dockers Files
 
@@ -180,9 +180,7 @@ Bin boot data
 
     docker container ls -sa
 
-    Project
-
-    https://gitlab.com/nanuchi/techworld-js-docker-demo-app
+**    Project**
 
     Download Mongo DB
 
@@ -193,16 +191,13 @@ Bin boot data
     Creating Docker Network
     $ docker network ls
     $ docker network create mongo-network
-    $ docker network ls ( you will see mongo-network
+    $ docker network ls ( you will see mongo-network )
 
 
-    Mongo DB install
+**    Mongo DB install
 
-    #Commands
-
-    #create docker network
-    Docker network create mongo-network
-
+**    #Commands**
+ 
     ## start mongodb
     docker run -d \
     -p 27017:27017 \
@@ -223,8 +218,10 @@ Bin boot data
     mongo-express
 
 
+**to see MONGO DB, go to Firefox and type the below**
+    Localhost:8081
 
-    Localhost:8080/db/my-db/users
+**to see MONGO DB, go to Firefox and type the below**
     Localhost:3000
 
     #Docker compose
