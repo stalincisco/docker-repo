@@ -95,8 +95,8 @@
 
     Images, containers, volumes, or customized configuration files on your host are not automatically removed. To delete all images, containers, and volumes:
 
-     $ sudo rm -rf /var/lib/docker
-     $ sudo rm -rf /var/lib/containerd
+    $ sudo rm -rf /var/lib/docker
+    $ sudo rm -rf /var/lib/containerd
 
 
 
@@ -113,32 +113,31 @@
     $ docker run -d redis ( start a new container with a command )
            $ docker ps
 
-           $ docker stop 838186(container ID) ( stop the container )
+    $ docker stop 838186(container ID) ( stop the container )
+           $ docker ps
+    
+    $ docker start 838186(container ID) ( start the container )
            $ docker ps
 
-           $ docker start 838186(container ID) ( start the container )
+   $ docker ps -a ( lists all the container which are running and stopped containers)
+
+   $ docker run redis:4.0  ( pulls image and start container )
            $ docker ps
 
-           $ docker ps -a ( lists all the container which are running and stopped containers)
-
-           $ docker run redis:4.0  ( pulls image and start container )
-           $ docker ps
-
-             $ docker run -p6000:6379  ( -p bind the port of your host to the container)
-
-           $ docker run -p6000:6379 redis
+   $ docker run -p6000:6379  ( -p bind the port of your host to the container)
+ 
+          $ docker run -p6000:6379 redis
           $ docker ps
 
           $ docker run -p6000:6379 -d redis
-           $ docker ps
-
-
-           $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
-           $ docker ps
+          $ docker ps
+          
+          $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
+          $ docker ps
 
 How to Run a container will a name change
 $ docker ps  
- $ docker stop cfec85d7
+$ docker stop cfec85d7
 
                   $ docker run -d -p6001:6379 --name redis-older redis:4.0
                  $ docker ps
@@ -198,8 +197,6 @@ Bin boot data
 
 
     Mongo DB install
-
-
 
     #Commands
 
