@@ -1,5 +1,5 @@
-    1) Docker HUB on Google
-    2) Download Postgres from docker hub page and install on docker, install different version
+    **1) Docker HUB on Google
+    **2) Download Postgres from docker hub page and install on docker, install different version
     - $ Docker ps
     - $ docker run postgres:9.6
     - $ docker run postgres:10.10
@@ -22,7 +22,7 @@
     #Use DNF to add and enable the official Docker CE repository. Type the following command in your terminal window:
     $sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
-    #The system informs you that it has successfully retrieved the repository.
+   ** #The system informs you that it has successfully retrieved the repository.**
 
     $sudo dnf repolist -v
 
@@ -31,7 +31,7 @@
 
     #Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
-    Install Docker CE on CentOS 8
+**    Install Docker CE on CentOS 8******
 
     Option 1: Skip Packages with Broken Dependencies
     #An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
@@ -54,8 +54,8 @@
 
     The output below confirms that docker-ce-3:19.03.5-3.el7.x86_64 has been successfully installed.
 
-    Start and Test Docker
-    Enable Docker
+**    Start and Test Docker******
+**    Enable Docker**
     #Enable and start the Docker service with:
 
     $sudo systemctl enable --now docker
@@ -64,12 +64,12 @@
 
     $systemctl status docker
 
-    Add User to Docker User Group
+ **   Add User to Docker User Group**
     #Add your user to the docker group with the following command:
     $sudo usermod -aG docker osboxes
     $id osboxes
 
-    Disable firewalld on CentOS 8
+  **  Disable firewalld on CentOS 8**
     As mentioned previously, we need to disable firewalld for DNS resolution inside Docker containers to work.
     #One simple command is enough to disable firewalld in CentOS 8:
 
@@ -88,7 +88,7 @@
     $ sudo docker run hello-world
 
 
-    Optional : Uninstall Docker Engine
+**    Optional : Uninstall Docker Engine**
 
 
     $ sudo yum remove docker-ce docker-ce-cli containerd.io
@@ -100,7 +100,7 @@
 
 
 
-    Install Redis Application
+ **   Install Redis Application**
     $ docker pull redis
 
     $ docker images  ( will display images running on container)
@@ -135,7 +135,7 @@
   $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
           $ docker ps
 
-#How to Run a container will a name change
+**#How to Run a container will a name change**
   $ docker ps  
   $ docker stop cfec85d7
 
@@ -166,23 +166,23 @@ Bin boot data
     ( you will have limited number of commands which works under container)
 
 
-    Ngnix install
+****    Ngnix install**
+**
+    $docker container create nginx
+    $docker container ls -a
 
-    docker container create nginx
-    docker container ls -a
-
-    docker container inspect web01 | grep -e "HostPort" -e "IPAddress"
-    curl 172.17.0.4
-
-
-    docker container run -d --name web02 -dit -p 8080:80 nginx
+    $docker container inspect web01 | grep -e "HostPort" -e "IPAddress"
+    $curl 172.17.0.4
 
 
-    docker container ls -sa
+    $docker container run -d --name web02 -dit -p 8080:80 nginx
 
-**    Project**
 
-    Download Mongo DB
+    $docker container ls -sa
+
+****Project****
+
+**    Download Mongo DB**
 
     $ docker pull mongo
     $ docker pull mongo-express
@@ -206,6 +206,8 @@ Bin boot data
     --net mongo-network \
     --name mongodb \
     mongo
+    
+**    Mongo Express install
 
     ## start mongo-express
     docker run -d \
@@ -236,7 +238,7 @@ Bin boot data
     $ docker-compose -f mongo.yaml down ( to bring the containers down)
 
 
-    #Remove the container
+ **   #Remove the container**
     $ docker rm 3c5868bi (container name)
 
     $ docker rmi 2e08bi (image deletion)
@@ -245,7 +247,7 @@ Bin boot data
     $ docker logs 34341FNADLFN (CONTAINER id)
 
 
-    #CONNECT TO A CONTAINER
+**    #CONNECT TO A CONTAINER**
     $ docker exec -it 542524klksdfjad(container ID) /bin/sh
     /# ls
     /# env (mongo db username and password are set )
@@ -330,16 +332,16 @@ Bin boot data
     	# no need for /home/app/server.js because of WORKDIR
     	CMD ["node", "server.js"]
 
-       # Save and exit the file.
-    You can check the content of the file by using the cat command:
+**	   # Save and exit the file.**
+	You can check the content of the file by using the cat command:
     $cat Dockerfile
 
-    	- Note:
+  	- Note:
     	- FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
     	- RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
     	- CMD – There can be only one CMD instruction inside a Dockerfile. Its purpose is to provide defaults for an executing container. With it, you set a default command. The system will execute it if you run a container without specifying a command.
 
-    #Build a Docker Image with Dockerfile
+**    #Build a Docker Image with Dockerfile**
 
     The basic syntax used to build an image using a Dockerfile is:
     $docker build [OPTIONS] PATH | URL | -
