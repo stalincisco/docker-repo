@@ -366,10 +366,12 @@ Bin boot data
 	
 	
 ****	Install Visual Studio Code ****
-	**Switch to the root user.**
-        $su -
+**	**Switch to the root user.****
+      
+      $su -
 **Download and import the Microsoft signing GPG key using the curl command.**
-   $rpm --import https://packages.microsoft.com/keys/microsoft.asc
+
+$rpm --import https://packages.microsoft.com/keys/microsoft.asc
    
   **** Now, add the Visual Studio Code repository to your system.****
 
