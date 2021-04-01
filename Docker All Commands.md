@@ -404,6 +404,4 @@ https://ip.add.re.ss:9090
 
 You can manage disks, partitions, and LVM by going to Storage (dnf install -y cockpit-storaged). Also, you can check disk read and write performance and storage logs.
 
-You can manage Podman containers by going yo the Podman Containers (dnf install -y cockpit-podman) page. Here, you can run, stop, delete and commit containers.
-
 Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to Virtual Machines.
