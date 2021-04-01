@@ -391,10 +391,12 @@ EOF
   $yum update code
   
 ****Install Cockpit on CentOS 8 ****
-#Install the Cockpit package in case the package is not already installed.
+**#Install the Cockpit package in case the package is not already installed.**
+  
   $dnf install -y cockpit
 
-#You can install add-on packages to manage other tasks using Cockpit.
+**#You can install add-on packages to manage other tasks using Cockpit.**
+
   $Enable the Cockpit service.
   $systemctl enable --now cockpit.socket
   
