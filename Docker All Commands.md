@@ -393,13 +393,18 @@ EOF
 ****Install Cockpit on CentOS 8 ****
 #Install the Cockpit package in case the package is not already installed.
   $dnf install -y cockpit
+
 #You can install add-on packages to manage other tasks using Cockpit.
   $Enable the Cockpit service.
   $systemctl enable --now cockpit.socket
+  
 **Firewall******
+
 $firewall-cmd --permanent --add-service=cockpit
 $firewall-cmd --reload
+
 **Access Cockpit from Firefox**
+
 https://ip.add.re.ss:9090
 
 You can manage disks, partitions, and LVM by going to Storage (dnf install -y cockpit-storaged). Also, you can check disk read and write performance and storage logs.
