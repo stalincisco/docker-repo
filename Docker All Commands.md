@@ -433,6 +433,8 @@ $ docker ps
 
 $ docker exec -it containername /bin/bash
 
+#**Mongo shell commands ******
+
 $ mongo
 
 #(connect to the database) 
