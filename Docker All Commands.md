@@ -471,3 +471,7 @@ $docker rm -f containerID
 #(remove the container and next remove the docker volumes)
 $docker volumes ls
 
+$docker volumes rm mongo_db 434343(volume name)
+#to remove the docker persistant volume.
+
+
