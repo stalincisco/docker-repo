@@ -419,3 +419,55 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
 **Adding mongodb docker with persistant volumes &  Authentication**
 
 $ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
+$ docker Volume ls 
+
+**Default location for the Persistent Volumes******
+
+$ cd /var/lib/docker/volumes/mongo_db/_data/
+$ ls 
+**# Now you should be able to see the data from the mongo db container**
+
+
+***# Connect to the Database****
+$ docker ps 
+
+$ docker exec -it containername /bin/bash
+
+$ mongo
+#(connect to the database) 
+> mongo --help 
+(displays detail of parameter used with mongo command)
+> exit
+#(exit the DB)
+>show dbs
+>show databases
+#(displays details of the DB avaiable)
+>use mongodb
+#will create if new DB does not exit, will connect to db if it already exist. 
+>show collections 
+# will show data collection on the DB
+> db.createcollection("newcollection")
+# will create new collection data to the DB
+>show collections
+output: 
+newcollection
+
+>db.newcollection.find()
+# to find collection on the db
+> db.newcollection.insert({firstname: "john", lastname: "alan"})
+# to insert data in to the collection.
+
+>db.newcollection.find()
+#again run the find commmand to see the output
+
+# install and add field in mongo db compass in windows, then check using find command the new fields added to the collection.
+>db.newcollection.find()
+
+>exit
+
+$ docker ps
+
+$docker rm -f containerID
+#(remove the container and next remove the docker volumes)
+$docker volumes ls
+
