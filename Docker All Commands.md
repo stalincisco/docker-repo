@@ -462,7 +462,7 @@ $ mongo
 
 # will show data collection on the DB
 
-> db.createcollection("newcollection")
+> db.createCollection("newcollection")
 
 # will create new collection data to the DB
 
