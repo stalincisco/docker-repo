@@ -414,3 +414,8 @@ https://ip.add.re.ss:9090
 You can manage disks, partitions, and LVM by going to Storage (dnf install -y cockpit-storaged). Also, you can check disk read and write performance and storage logs.
 
 Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to Virtual Machines.
+
+
+**Adding mongodb docker with persistant volumes &  Authentication**
+
+$ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
