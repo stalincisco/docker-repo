@@ -1,12 +1,13 @@
-    **1) Docker HUB on Google***
-    **2) Download Postgres from docker hub page and install on docker, install different version
+# Docker Notes
+  1) Docker HUB on Google
+  2) Download Postgres from docker hub page and install on docker, install different version
     - $ Docker ps
     - $ docker run postgres:9.6
     - $ docker run postgres:10.10
     
-**#Dockers installation steps**
+**Dockers installation steps**
 
-    #Remove old dockers Files
+    ##Remove old dockers Files
 
     $ sudo yum remove docker \
                   docker-client \
@@ -18,18 +19,18 @@
                   docker-engine
 
 
-
-    #Use DNF to add and enable the official Docker CE repository. Type the following command in your terminal window:
+    Use DNF to add and enable the official Docker CE repository. Type the following command in your terminal window:
     $sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
-   ** #The system informs you that it has successfully retrieved the repository.**
-
+   **The system informs you that it has successfully retrieved the repository.
+   
     $sudo dnf repolist -v
 
     #To list all the available docker-ce packages, type:
+   
     $dnf list docker-ce --showduplicates | sort -r
 
-    #Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
+    Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
 **    Install Docker CE on CentOS 8******
 
