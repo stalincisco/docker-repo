@@ -22,7 +22,7 @@
     Use DNF to add and enable the official Docker CE repository. Type the following command in your terminal window:
     $sudo dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
 
-   **The system informs you that it has successfully retrieved the repository.
+   **The system informs you that it has successfully retrieved the repository.**
    
     $sudo dnf repolist -v
 
@@ -32,33 +32,35 @@
 
     Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
-**    Install Docker CE on CentOS 8******
+## Install Docker CE on CentOS 8
 
- **   Option 1: Skip Packages with Broken Dependencies**
+ **Option 1: Skip Packages with Broken Dependencies**
  
     #An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
 
     $sudo dnf install docker-ce --nobest
 
-**    Option 2: Install containerd.io Package Manually**
+ **Option 2: Install containerd.io Package Manually**
 
 
-    #Another option for installing Docker on CenOS 8 is to install the containerd.io package manually, in advance. This workaround allows you to install the latest docker-ce version.
-    Use the following command:
+ Another option for installing Docker on CenOS 8 is to install the containerd.io package manually, in advance. This workaround allows you to install the 
+ latest docker-ce version.Use the following command:
 
-    $sudo dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
-    #Confirm the installation with y. You have successfully installed the latest version of containerd.io.
+   $sudo dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
+ 
+ Confirm the installation with y. You have successfully installed the latest version of containerd.io.
 
 
-    #Now we can proceed to install the latest version of docker-ce with a simple command:
+ ## Now we can proceed to install the latest version of docker-ce with a simple command:
 
     $sudo dnf install docker-ce -y
 
-    The output below confirms that docker-ce-3:19.03.5-3.el7.x86_64 has been successfully installed.
+ The output below confirms that docker-ce-3:19.03.5-3.el7.x86_64 has been successfully installed.
 
-**    Start and Test Docker******
-**    Enable Docker**
-    #Enable and start the Docker service with:
+## Start and Test Docker
+**Enable Docker**
+
+Enable and start the Docker service with:
 
     $sudo systemctl enable --now docker
 
@@ -66,22 +68,23 @@
 
     $systemctl status docker
 
- **   Add User to Docker User Group**
+ **Add User to Docker User Group**
     #Add your user to the docker group with the following command:
     $sudo usermod -aG docker osboxes
     $id osboxes
 
-  **  Disable firewalld on CentOS 8**
+  **Disable firewalld on CentOS 8**
     As mentioned previously, we need to disable firewalld for DNS resolution inside Docker containers to work.
     #One simple command is enough to disable firewalld in CentOS 8:
 
     $sudo systemctl disable firewalld
 
-    #At this point, it is recommended to reboot your system for the change to take effect.
+   At this point, it is recommended to reboot your system for the change to take effect.
     $sudo shutdown now  -r
 
     After your system is up in running use the below command
-    #Start Docker.
+    
+   **Start Docker.**
 
     $ sudo systemctl start docker
 
@@ -90,7 +93,7 @@
     $ sudo docker run hello-world
 
 
-**    Optional : Uninstall Docker Engine**
+**Optional : Uninstall Docker Engine**
 
 
     $ sudo yum remove docker-ce docker-ce-cli containerd.io
@@ -100,9 +103,8 @@
     $ sudo rm -rf /var/lib/docker
     $ sudo rm -rf /var/lib/containerd
 
-
-
- **   Install Redis Application**
+   **Install Redis Application**
+    
     $ docker pull redis
 
     $ docker images  ( will display images running on container)
@@ -113,47 +115,49 @@
     Ctrl + C (Exit docker)
 
     $ docker run -d redis ( start a new container with a command )
-           $ docker ps
+    $ docker ps
 
     $ docker stop 838186(container ID) ( stop the container )
-           $ docker ps
+    $ docker ps
     
     $ docker start 838186(container ID) ( start the container )
-           $ docker ps
+    $ docker ps
 
-   $ docker ps -a ( lists all the container which are running and stopped containers)
+    $ docker ps -a ( lists all the container which are running and stopped containers)
 
-   $ docker run redis:4.0  ( pulls image and start container )
-           $ docker ps
+    $ docker run redis:4.0  ( pulls image and start container )
+    $ docker ps
 
-   $ docker run -p6000:6379  ( -p bind the port of your host to the container)
+    $ docker run -p6000:6379  ( -p bind the port of your host to the container)
  
-   $ docker run -p6000:6379 redis
-          $ docker ps
+    $ docker run -p6000:6379 redis
+    $ docker ps
 
-   $ docker run -p6000:6379 -d redis
-          $ docker ps
+    $ docker run -p6000:6379 -d redis
+    $ docker ps
           
-  $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
-          $ docker ps
+    $ docker run -p6001:6379 -d redis:4.0   ( run in detach mode, with port happed to 6001)
+    $ docker ps
 
-**#How to Run a container will a name change**
-  $ docker ps  
-  $ docker stop cfec85d7
+## How to Run a container with a name change
+    $ docker ps  
+    $ docker stop cfec85d7
 
-  $ docker run -d -p6001:6379 --name redis-older redis:4.0
-                $ docker ps
-         (redis:4.0 image name will be changed to redis-older)
+    $ docker run -d -p6001:6379 --name redis-older redis:4.0
+    $ docker ps
+  
+    (redis:4.0 image name will be changed to redis-older)
 
- $ docker run -d -p6000:6379 --name redis-latest redis
-                $ docker ps
-         (redis image name will be changed to redis-latest)
+    $ docker run -d -p6000:6379 --name redis-latest redis
+    $ docker ps
 
-If older version has some issue I can do
-$ docker logs redis-older
+    (redis image name will be changed to redis-latest)
+
+if older version has some issue I can do
+    $ docker logs redis-older
 
 To login to the terminal of a container and get log or troubleshoot, we can do
-$ docker exec -it Ce9032 /bin/bash
+    $ docker exec -it Ce9032 /bin/bash
 root@Ce9032 :/data# ls
 root@Ce9032 :/data# pwd
 /data
@@ -162,32 +166,31 @@ root@Ce9032 :/data# ls
 Bin boot data
 
     root@Ce9032 :/# env
-    #(displays environment variable)
+(displays environment variable)
 
     root@Ce9032 :/data# curl
     #(you will have limited number of commands which works under container)
 
 
-****    Ngnix install**
-**
+##  Ngnix install
+
     $docker container create nginx
     $docker container ls -a
 
     $docker container inspect web01 | grep -e "HostPort" -e "IPAddress"
     $curl 172.17.0.4
 
-
     $docker container run -d --name web02 -dit -p 8080:80 nginx
-
 
     $docker container ls -sa
 
-****Project****
+**Project**
+
 1) Create an folder under /Home/app/
 2) $git clone https://github.com/stalincisco/demo-repo/
 3) extract zip folder under same directory (techworld-js-docker-demo-app-master)
 
-****    Download Mongo DB**
+## Download Mongo DB
 
     $ docker pull mongo
     $ docker pull mongo-express
@@ -199,11 +202,11 @@ Bin boot data
     $ docker network ls ( you will see mongo-network )
 
 
-**    Mongo DB install
+## Mongo DB install
 
-**    #Commands**
+**Commands**
  
-    ## start mongodb
+   **Start mongodb**
     docker run -d \
     -p 27017:27017 \
     -e MONGO_INITDB_ROOT_USERNAME=admin \
@@ -212,9 +215,9 @@ Bin boot data
     --name mongodb \
     mongo
     
-**    Mongo Express install
+## Mongo Express install
 
-    ## start mongo-express
+  **start mongo-express**
     docker run -d \
     -p 8081:8081 \
     -e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
@@ -228,8 +231,8 @@ Bin boot data
 **to see MONGO Express, go to Firefox and type the below**
     Localhost:8081
 
-# create New database "my-db" and `users` in new collection database_ in mongo-express
-# Start your nodejs application locally - go to `app` directory of project 
+ **create New database "my-db" and `users` in new collection database_ in mongo-express**
+ **Start your nodejs application locally - go to `app` directory of project**
 
     $npm install 
     $node server.js
@@ -237,29 +240,29 @@ Bin boot data
 **to Access you nodejs application UI from Firefox browser**
     Localhost:3000
 
-**  **  #Docker compose****
+## Docker compose
 
     $ docker container kill web02 (kill all the application before launching dockers)
     $ docker-compose -f mongo.yaml up ( to bring the containers up)
     $ docker-compose -f mongo.yaml down ( to bring the containers down)
 
 
- **   #Remove the container**
+ **Remove the container**
+    
     $ docker rm 3c5868bi (container name)
-
     $ docker rmi 2e08bi (image deletion)
-
     $ docker ps
     $ docker logs 34341FNADLFN (CONTAINER id)
 
-
-**    #CONNECT TO A CONTAINER**
+**CONNECT TO A CONTAINER**
+    
     $ docker exec -it 542524klksdfjad(container ID) /bin/sh
     /# ls
     /# env (mongo db username and password are set )
     /# ls /home/app/
 
-    NodeJS is an open-source, cross-platform JavaScript runtime environment for developing network tools and web applications. Many of the NodeJS modules are written in JavaScript which makes the development of applications easier.
+    NodeJS is an open-source, cross-platform JavaScript runtime environment for developing network tools and web applications. Many of the NodeJS modules are written in  
+    JavaScript which makes the development of applications easier.
 
     NodeJS is a combination of the Runtime environment and JavaScript modules. Node.js interprets JavaScript using Google’s V8 JavaScript engine, developed by Ryan Dahl in 2009.
 
@@ -271,78 +274,83 @@ Bin boot data
         v12.x (Long Term Supported)
         v13.x (Current Latest Version)
 
+    **Now install build tools To compile and install native addons from npm, you need to install development tools**
+       	$ yum groupinstall -y 'Development Tools'
 
-    	#Now install build tools To compile and install native addons from npm, you need to install development tools.
-    	$ yum groupinstall -y 'Development Tools'
-
-    	#Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)
+    **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
     	$ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
     	$ yum install nodejs
 
-    	#Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)
+    **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
     	$ curl -sL https://rpm.nodesource.com/setup_13.x | bash -
     	$ sudo yum install nodejs
 
-    	#Install NodeJS Using OS Repository
+  ## Install NodeJS Using OS Repository
 
-    NodeJS v10.x is available from the AppStream repository (rhel-8-for-x86_64-appstream-rpms) for RHEL 8 and AppStream for CentOS 8. So, you can simply install it using yum command.
+    NodeJS v10.x is available from the AppStream repository (rhel-8-for-x86_64-appstream-rpms) for RHEL 8 and AppStream for CentOS 8. So, you can simply install it
+    using yum command.
 
     When NodeJS installed, NPM (Node Package Manager) will also be installed along with Node.js.
     	$ yum install -y @nodejs
 
-    	#Now run the following command to verify whether NodeJS is working:
+    **Now run the following command to verify whether NodeJS is working**
     	$ node -v
 
-    	#Now run the following command to see whether Node Package Manager (NPM) is working:
+    **Now run the following command to see whether Node Package Manager (NPM) is working**
     	$ npm -v
 
-    	#if you want to remove nodejs, execute the following command
+    **if you want to remove nodejs, execute the following command**
     	$sudo yum remove -y nodejs npm
 
-    	#firewall
-    	#Allow the port 9000 in the firewall to access the web application from external machines.
+    **firewall**
+    	Allow the port 9000 in the firewall to access the web application from external machines.
 
     	$firewall-cmd --permanent --add-port=9000/tcp
 
-            $firewall-cmd --reload
+        $firewall-cmd --reload
 
-    	#Now run the following command to start the app:
-    	$ node --inspect server.js
+   **Now run the following command to start the app:**
 
-    	#The app should start.
-    	Now from your web browser, go to http://localhost:3000 and you should see the following output. The NodeJS app is working
+        $ node --inspect server.js
+
+   **The app should start.**
+    	
+	Now from your web browser, go to http://localhost:3000 and you should see the following output. The NodeJS app is working
     	correctly.
-    	#Now to stop the app, press <Ctrl> + c on the terminal.
+    	Now to stop the app, press <Ctrl> + c on the terminal.
 
-    	Docker build an image
-    	#how to create a Dockerfile
-    	$ mkdir MyDockerImages
+## Docker build an image
+   **how to create a Dockerfile**
+  
+         $ mkdir MyDockerImages
 
-    	#Move into that directory and create a new empty file (Dockerfile) in it by typing:
+   **Move into that directory and create a new empty file (Dockerfile) in it by typing:**
 
     	$cd MyDockerImages
     	$touch Dockerfile
 
-    	#Open the file with a text editor of your choice. In this example, we opened the file using Nano:
-    	$nano Dockerfile
+   **Open the file with a text editor of your choice. In this example, we opened the file using Nano:**
+   
+        $nano Dockerfile
 
     	FROM node:13-alpine
     	ENV MONGO_DB_USERNAME=admin \
     	    MONGO_DB_PWD=password
     	RUN mkdir -p /home/app
     	COPY ./app /home/app
-    	# set default dir so that next commands executes in /home/app dir
+   **set default dir so that next commands executes in /home/app dir**
     	WORKDIR /home/app
-    	# will execute npm install in /home/app because of WORKDIR
+    **will execute npm install in /home/app because of WORKDIR**
     	RUN npm install
-    	# no need for /home/app/server.js because of WORKDIR
+    **no need for /home/app/server.js because of WORKDIR**
     	CMD ["node", "server.js"]
 
-**	   # Save and exit the file.**
-	You can check the content of the file by using the cat command:
+**Save and exit the file.**
+
+    You can check the content of the file by using the cat command:
     $cat Dockerfile
 
-**- Note:**
+## Note:**
 
 - FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
     	- RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
@@ -407,7 +415,7 @@ EOF
   $Enable the Cockpit service.
   $systemctl enable --now cockpit.socket
   
-**Firewall******
+**Firewall**
 
 $firewall-cmd --permanent --add-service=cockpit
 $firewall-cmd --reload
@@ -427,23 +435,24 @@ $ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest
 
 $ docker Volume ls 
 
-**Default location for the Persistent Volumes under you host folders******
+**Default location for the Persistent Volumes under you host folders**
 
 $ cd /var/lib/docker/volumes/mongo_db/_data/
 $ ls 
+
 **# Now you should be able to see the data from the mongo db container**
 
 
-***# Connect to the Database****
-$ docker ps 
+**Connect to the Database**
 
+$ docker ps 
 $ docker exec -it containername /bin/bash
 
-#**Mongo shell commands ******
+**Mongo shell commands **
 
 $ mongo
 
-#(connect to the database) 
+(connect to the database) 
 
 > mongo --help 
 
@@ -457,19 +466,19 @@ $ mongo
 
 >show databases
 
-#(displays details of the DB avaiable)
+(displays details of the DB avaiable)
 
 >use mongodb
 
-#will create if new DB does not exit, will connect to db if it already exist. 
+**will create if new DB does not exit, will connect to db if it already exist.** 
 
 >show collections 
 
-#will show data collection on the DB
+**will show data collection on the DB**
 
 > db.createCollection("newcollection")
 
-#will create new collection data to the DB
+**will create new collection data to the DB**
 
 >show collections
 output: 
@@ -477,17 +486,17 @@ newcollection
 
 >db.newcollection.find()
 
-# to find collection on the db
+**to find collection on the db**
 
 > db.newcollection.insert({firstname: "john", lastname: "alan"})
 
-# to insert data in to the collection.
+**to insert data in to the collection.**
 
 >db.newcollection.find()
 
-#again run the find commmand to see the output
+(again run the find commmand to see the output)
 
-# install and add field in mongo db compass in windows, then check using find command the new fields added to the collection.
+**install and add field in mongo db compass in windows, then check using find command the new fields added to the collection.**
 
 >db.newcollection.find()
 
@@ -496,10 +505,9 @@ newcollection
 $ docker ps
 
 $ docker rm -f containerID
-#(remove the container and next remove the docker volumes)
+**(remove the container and next remove the docker volumes)**
+
 $ docker volumes ls
 
 $ docker volumes rm mongo_db 434343(volume name)
-#to remove the docker persistant volume.
-
-
+**to remove the docker persistant volume.**
