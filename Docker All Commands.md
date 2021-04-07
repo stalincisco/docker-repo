@@ -1,4 +1,4 @@
-    **1) Docker HUB on Google
+    **1) Docker HUB on Google***
     **2) Download Postgres from docker hub page and install on docker, install different version
     - $ Docker ps
     - $ docker run postgres:9.6
@@ -33,12 +33,13 @@
 
 **    Install Docker CE on CentOS 8******
 
-    Option 1: Skip Packages with Broken Dependencies
+ **   Option 1: Skip Packages with Broken Dependencies**
+ 
     #An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
 
     $sudo dnf install docker-ce --nobest
 
-    Option 2: Install containerd.io Package Manually
+**    Option 2: Install containerd.io Package Manually**
 
 
     #Another option for installing Docker on CenOS 8 is to install the containerd.io package manually, in advance. This workaround allows you to install the latest docker-ce version.
@@ -160,10 +161,10 @@ root@Ce9032 :/data# ls
 Bin boot data
 
     root@Ce9032 :/# env
-    (displays environment variable)
+    #(displays environment variable)
 
     root@Ce9032 :/data# curl
-    ( you will have limited number of commands which works under container)
+    #(you will have limited number of commands which works under container)
 
 
 ****    Ngnix install**
@@ -184,7 +185,8 @@ Bin boot data
 1) Create an folder under /Home/app/
 2) $git clone https://github.com/stalincisco/demo-repo/
 3) extract zip folder under same directory (techworld-js-docker-demo-app-master)
-**    Download Mongo DB**
+
+****    Download Mongo DB**
 
     $ docker pull mongo
     $ docker pull mongo-express
@@ -227,6 +229,7 @@ Bin boot data
 
 # create New database "my-db" and `users` in new collection database_ in mongo-express
 # Start your nodejs application locally - go to `app` directory of project 
+
     $npm install 
     $node server.js
     
