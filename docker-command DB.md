@@ -1,9 +1,10 @@
-	#commands
+# Database commands
 	
-	##create docker network
+**create docker network**
 	Docker network create mongo-network
 	
-	## start mongodb
+**start mongodb**
+
 	docker run -d \
 	-p 27017:27017 \
 	-e MONGO_INITDB_ROOT_USERNAME=admin \
@@ -13,7 +14,8 @@
 	mongo
 	
 	
-	## start mongodb with Persistant Volume 
+**start mongodb with Persistant Volume***
+
 	docker run -d \
 	-p 27017:27017 \
 	-e MONGO_INITDB_ROOT_USERNAME=admin \
@@ -23,14 +25,16 @@
 	--name mongodb \
 	mongo
 	
-	## start mongodb with Persistant Volume without username and password
+**start mongodb with Persistant Volume without username and password**
+
 	docker run -d \
 	-p 27017:27017 \
 	-v mongo_db:/data/db \
 	--name mongodb \
 	mongo
 	
-	## start mongo-express
+**start mongo-express**
+
 	docker run -d \
 	-p 8081:8081 \
 	-e ME_CONFIG_MONGODB_ADMINUSERNAME=admin \
