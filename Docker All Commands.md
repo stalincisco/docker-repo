@@ -345,6 +345,7 @@ Bin boot data
     	    MONGO_DB_PWD=password
     	RUN mkdir -p /home/app
     	COPY ./app /home/app
+	
    **set default dir so that next commands executes in /home/app dir**
     	WORKDIR /home/app
     **will execute npm install in /home/app because of WORKDIR**
@@ -354,8 +355,8 @@ Bin boot data
 
 **Save and exit the file.**
 
-   You can check the content of the file by using the cat command:
-   $ cat Dockerfile
+  You can check the content of the file by using the cat command:
+     $ cat Dockerfile
 
 ## Note:
 
@@ -371,11 +372,11 @@ Bin boot data
     
    To build a docker image, you would therefore use:
     
-    $docker build [location of your dockerfile]
+    $ docker build [location of your dockerfile]
     
    If you are already in the directory where the Dockerfile is located, put a . instead of the location:
     
-    $docker build .
+    $ docker build .
 
    By adding the -t flag, you can tag the new image with a name which will help you when dealing with multiple images:
 
@@ -397,7 +398,7 @@ Bin boot data
     
 **Download and import the Microsoft signing GPG key using the curl command.**
 
-$rpm --import https://packages.microsoft.com/keys/microsoft.asc
+    $rpm --import https://packages.microsoft.com/keys/microsoft.asc
    
  **Now, add the Visual Studio Code repository to your system.**
 
@@ -412,16 +413,16 @@ EOF
 
 **Install Visual Studio Code**
 
-  $yum check-update
-  $yum install -y code
+   $ yum check-update
+   $ yum install -y code
   
 **Start Visual Studio Code**
   
-  $code
+   $ code
 
 **Update Visual Studio Code**
 
-  $yum update code
+   $ yum update code
   
 ## Install Cockpit on CentOS 8 
 
@@ -431,13 +432,13 @@ EOF
 
 **You can install add-on packages to manage other tasks using Cockpit.**
 
-  $ Enable the Cockpit service.
-  $ systemctl enable --now cockpit.socket
+   $ Enable the Cockpit service.
+   $ systemctl enable --now cockpit.socket
   
 **Firewall**
 
- $ firewall-cmd --permanent --add-service=cockpit
- $ firewall-cmd --reload
+   $ firewall-cmd --permanent --add-service=cockpit
+   $ firewall-cmd --reload
 
 **Access Cockpit from Firefox**
 
@@ -450,26 +451,26 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
 
 **Adding mongodb docker with persistant volumes &  Authentication**
 
-  $ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
+    $ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
 
-  $ docker Volume ls 
+    $ docker Volume ls 
 
 **Default location for the Persistent Volumes under you host folders**
 
-  $ cd /var/lib/docker/volumes/mongo_db/_data/
-  $ ls 
+     $ cd /var/lib/docker/volumes/mongo_db/_data/
+     $ ls 
 
 **Now you should be able to see the data from the mongo db container**
 
 
 **Connect to the Database**
 
-  $ docker ps 
-  $ docker exec -it containername /bin/bash
+    $ docker ps 
+    $ docker exec -it containername /bin/bash
 
 ## Mongo shell commands
 
-  $ mongo
+    $ mongo
 
 (connect to the database) 
 
@@ -523,12 +524,14 @@ newcollection
 
 >exit
 
- $ docker ps
+   $ docker ps
 
- $ docker rm -f containerID
+   $ docker rm -f containerID
+
 **(remove the container and next remove the docker volumes)**
 
- $ docker volumes ls
+   $ docker volumes ls
 
- $ docker volumes rm mongo_db 434343(volume name)
+   $ docker volumes rm mongo_db 434343(volume name)
+
 **to remove the docker persistant volume.**
