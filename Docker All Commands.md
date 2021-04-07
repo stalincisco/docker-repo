@@ -310,7 +310,7 @@ Bin boot data
 
    **firewall**
    
-         Allow the port 9000 in the firewall to access the web application from external machines.
+      Allow the port 9000 in the firewall to access the web application from external machines.
 
     	$ firewall-cmd --permanent --add-port=9000/tcp
 
@@ -394,6 +394,7 @@ Bin boot data
 **Switch to the root user.**
       
     $su -
+    
 **Download and import the Microsoft signing GPG key using the curl command.**
 
 $rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -410,17 +411,23 @@ gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 
 **Install Visual Studio Code**
+
   $yum check-update
   $yum install -y code
+  
 **Start Visual Studio Code**
+  
   $code
+
 **Update Visual Studio Code**
+
   $yum update code
   
 ## Install Cockpit on CentOS 8 
+
 **Install the Cockpit package in case the package is not already installed.**
   
-  $ dnf install -y cockpit
+   $ dnf install -y cockpit
 
 **You can install add-on packages to manage other tasks using Cockpit.**
 
