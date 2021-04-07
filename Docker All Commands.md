@@ -394,11 +394,11 @@ Bin boot data
 
 **Switch to the root user.**
       
-    $su -
+     $su -
     
 **Download and import the Microsoft signing GPG key using the curl command.**
 
-    $rpm --import https://packages.microsoft.com/keys/microsoft.asc
+     $rpm --import https://packages.microsoft.com/keys/microsoft.asc
    
  **Now, add the Visual Studio Code repository to your system.**
 
@@ -413,32 +413,32 @@ EOF
 
 **Install Visual Studio Code**
 
-   $ yum check-update
-   $ yum install -y code
+    $ yum check-update
+    $ yum install -y code
   
 **Start Visual Studio Code**
   
-   $ code
+    $ code
 
 **Update Visual Studio Code**
 
-   $ yum update code
+    $ yum update code
   
 ## Install Cockpit on CentOS 8 
 
 **Install the Cockpit package in case the package is not already installed.**
   
-   $ dnf install -y cockpit
+    $ dnf install -y cockpit
 
 **You can install add-on packages to manage other tasks using Cockpit.**
 
-   $ Enable the Cockpit service.
-   $ systemctl enable --now cockpit.socket
+    $ Enable the Cockpit service.
+    $ systemctl enable --now cockpit.socket
   
 **Firewall**
 
-   $ firewall-cmd --permanent --add-service=cockpit
-   $ firewall-cmd --reload
+    $ firewall-cmd --permanent --add-service=cockpit
+    $ firewall-cmd --reload
 
 **Access Cockpit from Firefox**
 
@@ -524,14 +524,14 @@ newcollection
 
 >exit
 
-   $ docker ps
+    $ docker ps
 
-   $ docker rm -f containerID
+    $ docker rm -f containerID
 
 **(remove the container and next remove the docker volumes)**
 
-   $ docker volumes ls
+    $ docker volumes ls
 
-   $ docker volumes rm mongo_db 434343(volume name)
+    $ docker volumes rm mongo_db 434343(volume name)
 
 **to remove the docker persistant volume.**
