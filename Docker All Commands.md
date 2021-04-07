@@ -7,7 +7,7 @@
     
 **Dockers installation steps**
 
-    ##Remove old dockers Files
+  **Remove old dockers Files**
 
     $ sudo yum remove docker \
                   docker-client \
@@ -36,9 +36,9 @@
 
  **Option 1: Skip Packages with Broken Dependencies**
  
-    #An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
+   An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
 
-    $sudo dnf install docker-ce --nobest
+   $sudo dnf install docker-ce --nobest
 
  **Option 2: Install containerd.io Package Manually**
 
@@ -64,12 +64,12 @@ Enable and start the Docker service with:
 
     $sudo systemctl enable --now docker
 
-    #Next, use this short command to confirm that Docker is active and running:
+Next, use this short command to confirm that Docker is active and running:
 
     $systemctl status docker
 
  **Add User to Docker User Group**
-    #Add your user to the docker group with the following command:
+ Add your user to the docker group with the following command:
     $sudo usermod -aG docker osboxes
     $id osboxes
 
@@ -274,15 +274,18 @@ Bin boot data
         v12.x (Long Term Supported)
         v13.x (Current Latest Version)
 
-    **Now install build tools To compile and install native addons from npm, you need to install development tools**
-       	$ yum groupinstall -y 'Development Tools'
+   **Now install build tools To compile and install native addons from npm, you need to install development tools**
+ 
+        yum groupinstall -y 'Development Tools'
 
-    **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
-    	$ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
+   **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
+   
+        $ curl -sL https://rpm.nodesource.com/setup_12.x | bash -
     	$ yum install nodejs
 
-    **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
-    	$ curl -sL https://rpm.nodesource.com/setup_13.x | bash -
+   **Run the following command to add the package repository of NodeJS 12.x on your CentOS 8 machine:(Recommended)**
+   
+        $ curl -sL https://rpm.nodesource.com/setup_13.x | bash -
     	$ sudo yum install nodejs
 
   ## Install NodeJS Using OS Repository
@@ -293,21 +296,25 @@ Bin boot data
     When NodeJS installed, NPM (Node Package Manager) will also be installed along with Node.js.
     	$ yum install -y @nodejs
 
-    **Now run the following command to verify whether NodeJS is working**
-    	$ node -v
+   **Now run the following command to verify whether NodeJS is working**
+   
+        $ node -v
 
-    **Now run the following command to see whether Node Package Manager (NPM) is working**
-    	$ npm -v
+   **Now run the following command to see whether Node Package Manager (NPM) is working**
+   
+       $ npm -v
 
-    **if you want to remove nodejs, execute the following command**
-    	$sudo yum remove -y nodejs npm
+   **if you want to remove nodejs, execute the following command**
+ 
+      $sudo yum remove -y nodejs npm
 
-    **firewall**
-    	Allow the port 9000 in the firewall to access the web application from external machines.
+   **firewall**
+   
+         Allow the port 9000 in the firewall to access the web application from external machines.
 
-    	$firewall-cmd --permanent --add-port=9000/tcp
+    	$ firewall-cmd --permanent --add-port=9000/tcp
 
-        $firewall-cmd --reload
+        $ firewall-cmd --reload
 
    **Now run the following command to start the app:**
 
@@ -326,8 +333,8 @@ Bin boot data
 
    **Move into that directory and create a new empty file (Dockerfile) in it by typing:**
 
-    	$cd MyDockerImages
-    	$touch Dockerfile
+    	$ cd MyDockerImages
+    	$ touch Dockerfile
 
    **Open the file with a text editor of your choice. In this example, we opened the file using Nano:**
    
@@ -347,46 +354,51 @@ Bin boot data
 
 **Save and exit the file.**
 
-    You can check the content of the file by using the cat command:
-    $cat Dockerfile
+   You can check the content of the file by using the cat command:
+   $ cat Dockerfile
 
-## Note:**
+## Note:
 
 - FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
-    	- RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
-    	- CMD – There can be only one CMD instruction inside a Dockerfile. Its purpose is to provide defaults for an executing container. With it, you set a default command. The system will execute it if you run a container without specifying a command.
+- RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
+- CMD – There can be only one CMD instruction inside a Dockerfile. Its purpose is to provide defaults for an executing container. With it, you set a default command. The system will execute it if you run a container without specifying a command.
 
-**    #Build a Docker Image with Dockerfile**
+**Build a Docker Image with Dockerfile**
 
-    The basic syntax used to build an image using a Dockerfile is:
+   The basic syntax used to build an image using a Dockerfile is:
+  
     $docker build [OPTIONS] PATH | URL | -
-    To build a docker image, you would therefore use:
+    
+   To build a docker image, you would therefore use:
+    
     $docker build [location of your dockerfile]
-    If you are already in the directory where the Dockerfile is located, put a . instead of the location:
+    
+   If you are already in the directory where the Dockerfile is located, put a . instead of the location:
+    
     $docker build .
 
-    By adding the -t flag, you can tag the new image with a name which will help you when dealing with multiple images:
+   By adding the -t flag, you can tag the new image with a name which will help you when dealing with multiple images:
 
-        $ docker build -t my-app:1.0 .                     (. Is for local install)
+     $ docker build -t my-app:1.0 .                     (. Is for local install)
 
-    	# To see your image
+  **To see your image**
 
-    	$ docker Images
+    $ docker Images
 
-    	#Create a New Container
+   **Create a New Container**
 
-    	$docker run --name test my-app:1.0
+    $ docker run --name test my-app:1.0
 	
-	
-****	Install Visual Studio Code ****
-**	**Switch to the root user.****
+##Install Visual Studio Code
+
+**Switch to the root user.**
       
-      $su -
+    $su -
 **Download and import the Microsoft signing GPG key using the curl command.**
 
 $rpm --import https://packages.microsoft.com/keys/microsoft.asc
    
-  **** Now, add the Visual Studio Code repository to your system.****
+ **Now, add the Visual Studio Code repository to your system.**
 
 $cat << EOF > /etc/yum.repos.d/vscode.repo
 [code]
@@ -397,28 +409,28 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 
-****Install Visual Studio Code****
+**Install Visual Studio Code**
   $yum check-update
   $yum install -y code
-**  Start Visual Studio Code******
+**Start Visual Studio Code**
   $code
-****  Update Visual Studio Code****
+**Update Visual Studio Code**
   $yum update code
   
-****Install Cockpit on CentOS 8 ****
-**#Install the Cockpit package in case the package is not already installed.**
+## Install Cockpit on CentOS 8 
+**Install the Cockpit package in case the package is not already installed.**
   
-  $dnf install -y cockpit
+  $ dnf install -y cockpit
 
-**#You can install add-on packages to manage other tasks using Cockpit.**
+**You can install add-on packages to manage other tasks using Cockpit.**
 
-  $Enable the Cockpit service.
-  $systemctl enable --now cockpit.socket
+  $ Enable the Cockpit service.
+  $ systemctl enable --now cockpit.socket
   
 **Firewall**
 
-$firewall-cmd --permanent --add-service=cockpit
-$firewall-cmd --reload
+ $ firewall-cmd --permanent --add-service=cockpit
+ $ firewall-cmd --reload
 
 **Access Cockpit from Firefox**
 
@@ -431,26 +443,26 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
 
 **Adding mongodb docker with persistant volumes &  Authentication**
 
-$ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
+  $ docker run -d --name mongodb -p 27017:27017 -v mongo_db:/data/db mongo:latest 
 
-$ docker Volume ls 
+  $ docker Volume ls 
 
 **Default location for the Persistent Volumes under you host folders**
 
-$ cd /var/lib/docker/volumes/mongo_db/_data/
-$ ls 
+  $ cd /var/lib/docker/volumes/mongo_db/_data/
+  $ ls 
 
 **# Now you should be able to see the data from the mongo db container**
 
 
 **Connect to the Database**
 
-$ docker ps 
-$ docker exec -it containername /bin/bash
+  $ docker ps 
+  $ docker exec -it containername /bin/bash
 
 **Mongo shell commands **
 
-$ mongo
+  $ mongo
 
 (connect to the database) 
 
@@ -460,7 +472,7 @@ $ mongo
 
 > exit
 
-#(exit the DB)
+(exit the DB)
 
 >show dbs
 
@@ -481,7 +493,8 @@ $ mongo
 **will create new collection data to the DB**
 
 >show collections
-output: 
+
+**Output:** 
 newcollection
 
 >db.newcollection.find()
@@ -502,12 +515,12 @@ newcollection
 
 >exit
 
-$ docker ps
+ $ docker ps
 
-$ docker rm -f containerID
+ $ docker rm -f containerID
 **(remove the container and next remove the docker volumes)**
 
-$ docker volumes ls
+ $ docker volumes ls
 
-$ docker volumes rm mongo_db 434343(volume name)
+ $ docker volumes rm mongo_db 434343(volume name)
 **to remove the docker persistant volume.**
