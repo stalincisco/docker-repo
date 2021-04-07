@@ -3,8 +3,8 @@
     - $ Docker ps
     - $ docker run postgres:9.6
     - $ docker run postgres:10.10
-**
-** **   #Dockers installation steps******
+    
+**#Dockers installation steps**
 
     #Remove old dockers Files
 
@@ -341,8 +341,9 @@ Bin boot data
 	You can check the content of the file by using the cat command:
     $cat Dockerfile
 
-  	- Note:
-    	- FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
+**- Note:**
+
+- FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
     	- RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
     	- CMD – There can be only one CMD instruction inside a Dockerfile. Its purpose is to provide defaults for an executing container. With it, you set a default command. The system will execute it if you run a container without specifying a command.
 
@@ -463,11 +464,11 @@ $ mongo
 
 >show collections 
 
-# will show data collection on the DB
+#will show data collection on the DB
 
 > db.createCollection("newcollection")
 
-# will create new collection data to the DB
+#will create new collection data to the DB
 
 >show collections
 output: 
@@ -493,11 +494,11 @@ newcollection
 
 $ docker ps
 
-$docker rm -f containerID
+$ docker rm -f containerID
 #(remove the container and next remove the docker volumes)
-$docker volumes ls
+$ docker volumes ls
 
-$docker volumes rm mongo_db 434343(volume name)
+$ docker volumes rm mongo_db 434343(volume name)
 #to remove the docker persistant volume.
 
 
