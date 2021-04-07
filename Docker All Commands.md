@@ -452,7 +452,7 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
   $ cd /var/lib/docker/volumes/mongo_db/_data/
   $ ls 
 
-**# Now you should be able to see the data from the mongo db container**
+**Now you should be able to see the data from the mongo db container**
 
 
 **Connect to the Database**
@@ -460,7 +460,7 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
   $ docker ps 
   $ docker exec -it containername /bin/bash
 
-**Mongo shell commands **
+## Mongo shell commands
 
   $ mongo
 
@@ -495,6 +495,7 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
 >show collections
 
 **Output:** 
+
 newcollection
 
 >db.newcollection.find()
