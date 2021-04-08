@@ -1,4 +1,4 @@
-# Docker Notes
+   # Docker Notes
   1) Docker HUB on Google
   2) Download Postgres from docker hub page and install on docker, install different version
     - $ Docker ps
@@ -32,13 +32,13 @@
 
     Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
-## Install Docker CE on CentOS 8
+### Install Docker CE on CentOS 8
 
  **Option 1: Skip Packages with Broken Dependencies**
  
    An efficient solution is to allow your CentOS 8 system to install the version that meets the criteria best, using the --nobest command:
 
-   $sudo dnf install docker-ce --nobest
+   $ sudo dnf install docker-ce --nobest
 
  **Option 2: Install containerd.io Package Manually**
 
@@ -51,13 +51,13 @@
  Confirm the installation with y. You have successfully installed the latest version of containerd.io.
 
 
- ## Now we can proceed to install the latest version of docker-ce with a simple command:
+ ### Now we can proceed to install the latest version of docker-ce with a simple command:
 
     $sudo dnf install docker-ce -y
 
  The output below confirms that docker-ce-3:19.03.5-3.el7.x86_64 has been successfully installed.
 
-## Start and Test Docker
+### Start and Test Docker
 **Enable Docker**
 
 Enable and start the Docker service with:
@@ -80,6 +80,7 @@ Next, use this short command to confirm that Docker is active and running:
     $sudo systemctl disable firewalld
 
    At this point, it is recommended to reboot your system for the change to take effect.
+    
     $sudo shutdown now  -r
 
     After your system is up in running use the below command
@@ -231,7 +232,7 @@ Bin boot data
 **to see MONGO Express, go to Firefox and type the below**
     Localhost:8081
 
- **create New database "my-db" and `users` in new collection database_ in mongo-express**
+**create New database "my-db" and `users` in new collection database_ in mongo-express**
  **Start your nodejs application locally - go to `app` directory of project**
 
     $npm install 
@@ -240,7 +241,7 @@ Bin boot data
 **to Access you nodejs application UI from Firefox browser**
     Localhost:3000
 
-## Docker compose
+### Docker compose
 
     $ docker container kill web02 (kill all the application before launching dockers)
     $ docker-compose -f mongo.yaml up ( to bring the containers up)
@@ -288,7 +289,7 @@ Bin boot data
         $ curl -sL https://rpm.nodesource.com/setup_13.x | bash -
     	$ sudo yum install nodejs
 
-  ## Install NodeJS Using OS Repository
+  ### Install NodeJS Using OS Repository
 
     NodeJS v10.x is available from the AppStream repository (rhel-8-for-x86_64-appstream-rpms) for RHEL 8 and AppStream for CentOS 8. So, you can simply install it
     using yum command.
@@ -326,7 +327,7 @@ Bin boot data
     	correctly.
     	Now to stop the app, press <Ctrl> + c on the terminal.
 
-## Docker build an image
+### Docker build an image
    **how to create a Dockerfile**
   
          $ mkdir MyDockerImages
@@ -358,7 +359,7 @@ Bin boot data
   You can check the content of the file by using the cat command:
      $ cat Dockerfile
 
-## Note:
+### Note:
 
 - FROM – Defines the base of the image you are creating. You can start from a parent image (as in the example above) or a base image. When using a parent image, you are using an existing image on which you base a new one. Using a base image means you are starting from scratch (which is exactly how you would define it: FROM scratch).
 - RUN – Instructions to execute a command while building an image in a layer on top of it. In this example, the system searches for repository updates once it starts building the Docker image. You can have more than one RUN instruction in a Dockerfile.
@@ -390,7 +391,7 @@ Bin boot data
 
     $ docker run --name test my-app:1.0
 	
-##Install Visual Studio Code
+###Install Visual Studio Code
 
 **Switch to the root user.**
       
@@ -424,7 +425,7 @@ EOF
 
     $ yum update code
   
-## Install Cockpit on CentOS 8 
+### Install Cockpit on CentOS 8 
 
 **Install the Cockpit package in case the package is not already installed.**
   
@@ -468,7 +469,7 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
     $ docker ps 
     $ docker exec -it containername /bin/bash
 
-## Mongo shell commands
+### Mongo shell commands
 
     $ mongo
 
