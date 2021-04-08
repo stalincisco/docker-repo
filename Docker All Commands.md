@@ -522,6 +522,14 @@ newcollection
 
 >db.newcollection.find()
 
+**if you require Authentation to insert fields in the DB use the follwoing command.**
+
+>use admin
+
+>db.auth( 'admin', 'password')
+
+> db.newcollection.insert({firstname: "john", lastname: "alan"})
+
 >exit
 
     $ docker ps
