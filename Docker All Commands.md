@@ -399,23 +399,24 @@ Bin boot data
     
 **Download and import the Microsoft signing GPG key using the curl command.**
 
-     $rpm --import https://packages.microsoft.com/keys/microsoft.asc
+     $sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
    
  **Now, add the Visual Studio Code repository to your system.**
 
-$cat << EOF > /etc/yum.repos.d/vscode.repo
+$sudo nano /etc/yum.repos.d/vscode.repo
+
+**Paste the following content to enable the VS Code repository:**
 [code]
 name=Visual Studio Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
 enabled=1
 gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
-EOF
 
 **Install Visual Studio Code**
 
     $ yum check-update
-    $ yum install -y code
+    $ sudo dnf install code
   
 **Start Visual Studio Code**
   
