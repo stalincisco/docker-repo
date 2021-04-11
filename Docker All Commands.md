@@ -406,12 +406,13 @@ Bin boot data
 $sudo nano /etc/yum.repos.d/vscode.repo
 
 **Paste the following content to enable the VS Code repository:**
-[code]
-name=Visual Studio Code
-baseurl=https://packages.microsoft.com/yumrepos/vscode
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+
+	[code]
+	name=Visual Studio Code
+	baseurl=https://packages.microsoft.com/yumrepos/vscode
+	enabled=1
+	gpgcheck=1
+	gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 
 **Install Visual Studio Code**
 
