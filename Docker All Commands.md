@@ -463,6 +463,21 @@ Manage the Kernel virtual machines (dnf install -y cockpit-machines) by going to
      $ cd /var/lib/docker/volumes/mongo_db/_data/
      $ ls 
 
+     **Windows:** c:\ProgramData\docker\volumes
+     **Linux:** /var/lib/docker/volumes
+     **Mac:**   /var/lib/docker/volumes
+   
+    Docker for Mac creates a linux virtual machine and stores all the docker data here!
+     $ ls /var/lib/docker
+     output: No such file or directory 
+     $ screen ~/library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
+     
+     **Terminal of the VM**
+     / # ls
+     / # ls /var/lib/docker
+     / # ls /var/lib/docker/     
+     
+
 **Now you should be able to see the data from the mongo db container**
 
 
