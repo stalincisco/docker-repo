@@ -211,6 +211,9 @@ Bin boot data
     $docker container create nginx
     $docker container ls -a
 
+    $docker container run -d --name web01 -dit -p 8080:80 nginx
+   
+    **Expose Ngnix**
     $docker container inspect web01 | grep -e "HostPort" -e "IPAddress"
     $curl 172.17.0.4
 
