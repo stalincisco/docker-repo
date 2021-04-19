@@ -32,7 +32,30 @@
 
     Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
-### Install Docker CE on CentOS 8
+### Installation Steps on Ubuntu
+    1  apt update
+    2  apt install docker.io -y
+    3  docker --version
+    4  docker info
+    5  systemctl status docker
+
+### Install Docker CE on CentOS 8 using yum
+
+    1  yum update -y
+    2  yum install -y yum-utils
+    3  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    4  yum install docker-ce docker-ce-cli containerd.io
+    5  systemctl status docker
+    6  systemctl start docker
+    7  systemctl status docker
+    8  docker --version
+    9  docker info
+    10  docker version
+
+    $  docker --version
+
+
+### Install Docker CE on CentOS 8 using dfn 
 
  **Option 1: Skip Packages with Broken Dependencies**
  
@@ -154,10 +177,10 @@ Next, use this short command to confirm that Docker is active and running:
 
     (redis image name will be changed to redis-latest)
 
-if older version has some issue I can do
+    if older version has some issue I can do
     $ docker logs redis-older
 
-To login to the terminal of a container and get log or troubleshoot, we can do
+    To login to the terminal of a container and get log or troubleshoot, we can do
     $ docker exec -it Ce9032 /bin/bash
 root@Ce9032 :/data# ls
 root@Ce9032 :/data# pwd
@@ -171,6 +194,16 @@ Bin boot data
 
     root@Ce9032 :/data# curl
     #(you will have limited number of commands which works under container)
+
+**----service update**
+
+    docker service create --name redis --replicas 5 --update-delay 10s redis:3.0.6
+    docker service ls
+    docker service ps redis
+    docker service update redis --image redis:3.0.7
+    docker service update redis --image redis:21
+    docker service ls
+    docker service rollback redis
 
 
 ##  Ngnix install
@@ -561,3 +594,25 @@ newcollection
     $ docker volumes rm mongo_db 434343(volume name)
 
 **to remove the docker persistant volume.**
+
+
+
+**push image to docker hub**
+      
+       docker login
+       docker push ramansharma95/apache
+       check in the docker hub
+ 
+ **---docker save and load command**
+    
+     docker save mywebserver > mywebserver.tar
+     docker load < mywebserver.tar
+   
+ **-----------Create Local Docker registry**
+ 
+ docker container run -d -p 5000:5000 --name local_registry registry
+ http://<serverip>:5000/v2/_catalog
+ docker container inspect local_registry
+ docker image tag ubuntu localhost:5000/ubuntu:latest
+ docker image push localhost:5000/ubuntu
+ docker image pull localhost:5000/ubuntu
