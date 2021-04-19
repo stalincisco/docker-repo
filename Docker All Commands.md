@@ -610,9 +610,9 @@ newcollection
    
  **-----------Create Local Docker registry**
  
- docker container run -d -p 5000:5000 --name local_registry registry
- http://<serverip>:5000/v2/_catalog
- docker container inspect local_registry
- docker image tag ubuntu localhost:5000/ubuntu:latest
- docker image push localhost:5000/ubuntu
- docker image pull localhost:5000/ubuntu
+    docker container run -d -p 5000:5000 --name local_registry registry
+    http://<serverip>:5000/v2/_catalog
+    docker container inspect local_registry
+    docker image tag ubuntu localhost:5000/ubuntu:latest
+    docker image push localhost:5000/ubuntu
+    docker image pull localhost:5000/ubuntu
