@@ -24,11 +24,11 @@
 
    **The system informs you that it has successfully retrieved the repository.**
    
-    $sudo dnf repolist -v
+    $ sudo dnf repolist -v
 
     #To list all the available docker-ce packages, type:
    
-    $dnf list docker-ce --showduplicates | sort -r
+    $ dnf list docker-ce --showduplicates | sort -r
 
     Unfortunately, CentOS 8 does not support specific versions of the container.id package. This means that only some versions of docker-ce are available for installation.
 
@@ -46,7 +46,7 @@
  Another option for installing Docker on CenOS 8 is to install the containerd.io package manually, in advance. This workaround allows you to install the 
  latest docker-ce version.Use the following command:
 
-   $sudo dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
+   $ sudo dnf install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.10-3.2.el7.x86_64.rpm
  
  Confirm the installation with y. You have successfully installed the latest version of containerd.io.
 
