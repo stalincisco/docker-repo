@@ -195,7 +195,7 @@ Bin boot data
     root@Ce9032 :/data# curl
     #(you will have limited number of commands which works under container)
 
-**----service update**
+**---service update**
 
     docker service create --name redis --replicas 5 --update-delay 10s redis:3.0.6
     docker service ls
@@ -220,9 +220,9 @@ Bin boot data
 
 **Project**
 
-1) Create an folder under /Home/app/
-2) $git clone https://github.com/stalincisco/demo-repo/
-3) extract zip folder under same directory (techworld-js-docker-demo-app-master)
+    1) Create an folder under /Home/app/
+    2) $git clone https://github.com/stalincisco/demo-repo/
+    3) extract zip folder under same directory (techworld-js-docker-demo-app-master)
 
 ## Download Mongo DB
 
@@ -608,7 +608,7 @@ newcollection
      docker save mywebserver > mywebserver.tar
      docker load < mywebserver.tar
    
- **-----------Create Local Docker registry**
+ **---Create Local Docker registry**
  
     docker container run -d -p 5000:5000 --name local_registry registry
     http://<serverip>:5000/v2/_catalog
