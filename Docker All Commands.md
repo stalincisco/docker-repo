@@ -217,8 +217,6 @@ Bin boot data
     $docker container inspect web01 | grep -e "HostPort" -e "IPAddress"
     $curl 172.17.0.4
 
-    $docker container run -d --name web02 -dit -p 8080:80 nginx
-
     $docker container ls -sa
 
 **Project**
