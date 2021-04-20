@@ -227,10 +227,6 @@ Bin boot data
 
 ## Download Mongo DB
 
-    $ docker pull mongo
-    $ docker pull mongo-express
-    $ docket images ( to check existing images)
-
     Creating Docker Network
     $ docker network ls
     $ docker network create mongo-network
