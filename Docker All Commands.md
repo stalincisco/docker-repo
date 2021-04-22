@@ -41,20 +41,16 @@
 
 ### Install Docker CE on CentOS 8 using yum
 
-    1  yum update -y
-    2  yum install -y yum-utils
-    3  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
-    4  yum install docker-ce docker-ce-cli containerd.io  
+    1  yum install -y yum-utils
+    2  yum-config-manager     --add-repo     https://download.docker.com/linux/centos/docker-ce.repo
+    3  yum install docker-ce docker-ce-cli containerd.io  
     (Ps: if you get issues installing Docker try this command $ sudo dnf install docker-ce --allowerasing )
-    5  systemctl status docker
-    6  systemctl start docker
-    7  systemctl status docker
-    8  docker --version
-    9  docker info
-    10  docker version
-
-    $  docker --version
-
+    4  systemctl status docker
+    5  systemctl start docker
+    6  systemctl status docker
+    7  docker --version
+    8  docker info
+    9  docker version
 
 ### Install Docker CE on CentOS 8 using dfn 
 
